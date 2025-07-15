@@ -4,15 +4,15 @@ This project's goal is to undertand historical trends and build simple predictiv
 I used a psd_alldata dataset, it can be found on kaggle, its kind of too big saving here.
 
 # The key steps in the building of the model include;
-data loading and initial inspection/, 
+data loading and initial inspection, 
 handling missing data,
 filtering for almonds shelled basis and relevant attribute, 
 Time series preparation(creating datatime index, handling missing periods)
-then moved on to stationary testing using ADF test/
-then differencing to achieve stationarity/
-feature Engineering/ 
-Data splitting/
-model building, a linear regression model/
+then moved on to stationary testing using ADF test,
+then differencing to achieve stationarity,
+feature Engineering, 
+Data splitting,
+model building, a linear regression model,
 then model evaluation.
 
 # The KEY FINDINGS were increasing production,and fluctuations in imports or exports 
