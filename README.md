@@ -1,9 +1,10 @@
-# **Time series model predicting the demand and supply of almonds, basis agricultural crop**
+# **Time series model predicting the domestic consumption of almonds,shelled basis agricultural crop**
 
 This project's goal is to undertand historical trends and build simple predictive model for domestic almonds consumption while performing an explaratory data and time series analysis.
 I used a psd_alldata dataset, it can be found on kaggle, its kind of too big saving here.
 
-# The key steps in the building of the model include; data loading and initial inspection/, 
+# The key steps in the building of the model include;
+data loading and initial inspection/, 
 handling missing data,
 filtering for almonds shelled basis and relevant attribute, 
 Time series preparation(creating datatime index, handling missing periods)
