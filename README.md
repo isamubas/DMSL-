@@ -15,7 +15,8 @@ Data splitting,
 model building, a linear regression model,
 then model evaluation.
 
-# The KEY FINDINGS were increasing production,and fluctuations in imports or exports 
+# The KEY FINDINGS were
+increasing production,and fluctuations in imports or exports 
 some of the evaluation metrics like MAE (MEAN ABSOLUTE ERROR) was off with about 1718.85
 
 ROOT MEAN SQUARED ERROR was whcich inidcataed a typical magnitude of prediction errors
