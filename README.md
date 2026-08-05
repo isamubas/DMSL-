@@ -11,7 +11,8 @@ to be trusted.
 
 | File | Description |
 |---|---|
-| [`time_series_analysis_prediction_model_of_supply_of_almonds.ipynb`](time_series_analysis_prediction_model_of_supply_of_almonds.ipynb) | The full analysis — data audit, maps, 22-model bake-off, feature importance, forecasts |
+| [`time_series_analysis_prediction_model_of_supply_of_almonds.ipynb`](time_series_analysis_prediction_model_of_supply_of_almonds.ipynb) | The full analysis, **with all outputs saved** — data audit, maps, 22-model bake-off, feature importance, forecasts (6.4 MB) |
+| [`almonds_timeseries_kaggle.ipynb`](almonds_timeseries_kaggle.ipynb) | Same notebook, **outputs stripped and Kaggle-aware** (80 KB). Use this one for Kaggle / Colab imports |
 | `almonds_raw.csv` | The `Almonds, Shelled Basis` slice of PSD (7,960 rows, 40 countries, MY1960–2020, metric tonnes) |
 
 ---
@@ -288,3 +289,25 @@ jupyter notebook time_series_analysis_prediction_model_of_supply_of_almonds.ipyn
 
 The notebook loads `almonds_raw.csv` from the working directory and falls back to
 mounting Google Drive on Colab. Full run takes ~20 minutes, dominated by the bake-off.
+
+### Running it on Kaggle
+
+**Import `almonds_timeseries_kaggle.ipynb`, not the main notebook.** The main one is
+6.4 MB — ~5 MB of that is `plotly.js`, which every offline Plotly figure embeds into the
+`.ipynb`. Kaggle's importer rejects it on size (`failed to import file content`). The
+Kaggle copy is the same 53 cells with outputs stripped: **80 KB**, and Kaggle re-executes
+notebooks anyway, so nothing is lost.
+
+1. Upload `almonds_raw.csv` as a Kaggle **Dataset**.
+2. Create a notebook, **File → Import Notebook**, upload `almonds_timeseries_kaggle.ipynb`.
+3. **+ Add Input** → attach your dataset. It mounts at `/kaggle/input/<dataset-name>/`.
+4. Run all.
+
+The Kaggle copy's loader searches the working directory, `/kaggle/input/*/`,
+`/kaggle/input/*/*/`, then falls back to Google Drive — so the same file works locally,
+on Kaggle and on Colab without edits.
+
+Kaggle's default image already has pandas, scikit-learn, statsmodels, xgboost, lightgbm,
+plotly and torch, so no installs are needed. Internet is off by default, which is fine:
+nothing here downloads anything, and the maps render from the embedded figure data
+produced during the run.
