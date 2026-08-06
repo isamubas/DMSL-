@@ -312,11 +312,4 @@ notebooks anyway, so nothing is lost.
 3. **+ Add Input** → attach your dataset. It mounts at `/kaggle/input/<dataset-name>/`.
 4. Run all.
 
-The Kaggle copy's loader searches the working directory, `/kaggle/input/*/`,
-`/kaggle/input/*/*/`, then falls back to Google Drive — so the same file works locally,
-on Kaggle and on Colab without edits.
 
-Kaggle's default image already has pandas, scikit-learn, statsmodels, xgboost, lightgbm,
-plotly and torch, so no installs are needed. Internet is off by default, which is fine:
-nothing here downloads anything, and the maps render from the embedded figure data
-produced during the run.
