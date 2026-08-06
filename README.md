@@ -274,6 +274,36 @@ MY2005 — a historical backcast, not a 2025 projection.
 
 ---
 
+## Which model should you actually use?
+
+| Model | Accuracy (median) | MASE | Worst case | Use it when |
+|---|---|---|---|---|
+| **Drift** | **84.0%** | 1.49 | 50.1% | You want the most accurate and the simplest |
+| **ETS-Holt** | 80.2% | **1.47** | **55.2%** | You want the most dependable — it never blows up |
+| **LightGBM** | 83.5% | 1.52 | 44.7% | You want an ML model that genuinely earned its place |
+
+These are the only three that beat Naive (MASE 1.57), the metric that controls for how
+hard the forecast window is. ARIMA ranks 3rd on raw accuracy (83.2%) but **loses to Naive
+on MASE (1.65)**, so part of its apparent edge is the trend being easy rather than the
+model being good.
+
+Note that ETS-Holt is 11th on median accuracy yet has the best MASE *and* the best worst
+case. For an operational forecast that reliability usually matters more than a slightly
+better median — the bad year costs more than the typical one.
+
+*"Accuracy" here is 100 − MAPE, a reading aid rather than a formal metric. It breaks down
+when error exceeds the actual value, which is why some worst-case figures elsewhere in
+this repo are negative. Use MAPE in anything you write up.*
+
+## Licence
+
+Code and written analysis: [MIT](LICENSE).
+
+The licence covers the code, **not the data**. `almonds_raw.csv` derives from USDA PSD —
+a US federal government work, generally public domain in the US under 17 U.S.C. §105 —
+obtained via the Kaggle redistribution linked above. Check that dataset's terms before
+redistributing the file.
+
 ## Running it
 
 ```bash
